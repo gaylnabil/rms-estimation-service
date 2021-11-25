@@ -1,0 +1,111 @@
+﻿<Window
+    x:Class="RMS_Estimation_Service.StartUp.SplashScreen"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:SimajeEmeakomLib.Controls;assembly=SimajeEmeakomLib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:RMS_Estimation_Service.StartUp"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Name="SimajeSplashScreen"
+    Title="SplashScreen"
+    Width="516"
+    Height="390"
+    Background="White"
+    FontFamily="Trebuchet MS (Body)"
+    FontSize="12"
+    Loaded="SimajeSplashScreen_Loaded"
+    Opacity="1"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Grid x:Name="GridContainer" MouseDown="GridContainer_MouseDown">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="234" />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#FD7200">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock
+                    Margin="0,20,0,0"
+                    FontSize="25"
+                    Foreground="White"
+                    Text=" RMS Estimation Service"
+                    TextAlignment="Center" />
+                <TextBlock
+                    x:Name="TxtSubTitle"
+                    Padding="60,10,60,10"
+                    FontFamily="Fira Code"
+                    FontSize="14"
+                    FontWeight="Thin"
+                    Foreground="White"
+                    Opacity="0.95"
+                    Text="Aware that no human activity could exist without a preserved environment, Simaje and all employees are committed to carbon offsetting"
+                    TextAlignment="Center"
+                    TextWrapping="WrapWithOverflow" />
+            </StackPanel>
+        </Grid>
+
+        <StackPanel
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <TextBlock
+                x:Name="txtPercent"
+                Margin="5"
+                FontSize="11"
+                Foreground="#575757"
+                Text="Loading data schema...0%" />
+            <controls:SimajeProgressBar
+                x:Name="ProgressBarSplash"
+                Width="350"
+                Height="16"
+                Background="White"
+                BorderThickness="2"
+                Value="10" />
+        </StackPanel>
+
+        <Grid
+            Grid.Row="2"
+            Margin="20,0,20,0"
+            VerticalAlignment="Center">
+            <StackPanel Margin="5">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock
+                        x:Name="txtCopyright"
+                        Margin="2,0,2,2"
+                        FontSize="11"
+                        Foreground="#575757"
+                        Text="Copyright @ 2020" />
+                    <TextBlock
+                        x:Name="txtCompany"
+                        Margin="2,0,0,2"
+                        FontSize="11"
+                        Foreground="#575757"
+                        Text="Simaje Emeakom" />
+                </StackPanel>
+                <TextBlock
+                    Margin="2,0,0,0"
+                    FontSize="11"
+                    Foreground="#575757"
+                    Text="All Rights Reserved" />
+                <TextBlock
+                    x:Name="txtVersion"
+                    Margin="2,0,0,0"
+                    Padding="0,5,0,0"
+                    FontSize="11"
+                    Foreground="#575757"
+                    Text="v1.1.1.0" />
+            </StackPanel>
+            <Image
+                Width="167"
+                Margin="0,0,0,0"
+                HorizontalAlignment="Right"
+                Source="../Images/Emeakom_logo.png" />
+        </Grid>
+    </Grid>
+</Window>

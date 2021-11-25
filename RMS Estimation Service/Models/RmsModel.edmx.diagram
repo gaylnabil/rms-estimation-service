@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7de98f7ae779445ab2bf063619eecf0c" Name="Diagram1">
+        <EntityTypeShape EntityType="RmsServicesModelSqlServer.DataAsync" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="RmsServicesModelSqlServer.Quote" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="RmsServicesModelSqlServer.ServiceCategory" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="RmsServicesModelSqlServer.Service" Width="1.5" PointX="3" PointY="0.875" />
+        <AssociationConnector Association="RmsServicesModelSqlServer.FK_Services_ServiceCategory" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

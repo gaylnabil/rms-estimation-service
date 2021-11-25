@@ -1,0 +1,102 @@
+﻿<UserControl
+    x:Class="RMS_Estimation_Service.ControlsObjects.ObjectServiceControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:SimajeEmeakomLib.Controls;assembly=SimajeEmeakomLib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:RMS_Estimation_Service.ControlsObjects"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    d:DesignHeight="260"
+    d:DesignWidth="215"
+    mc:Ignorable="d">
+    <Grid Background="Transparent">
+        <StackPanel Width="215" Height="260">
+            <Border
+                Margin="10,5,10,0"
+                BorderBrush="#D9D9D9"
+                BorderThickness="1">
+                <StackPanel Height="140" Background="White">
+                    <TextBlock
+                        x:Name="TxtBlockTitleServiceType"
+                        Padding="0,18"
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="#575757"
+                        Text="Presentation Design"
+                        TextAlignment="Center"
+                        TextWrapping="WrapWithOverflow" />
+                    <TextBlock
+                        x:Name="TxtBlockDescription"
+                        Padding="5,2"
+                        FontSize="12"
+                        Foreground="#7E7E7E"
+                        Text="PPT/GRID: Key slides, creative designs, slide edits/formatting and animation"
+                        TextAlignment="Center"
+                        TextWrapping="WrapWithOverflow" />
+                </StackPanel>
+            </Border>
+            <StackPanel Margin="10,5,10,0">
+                <controls:SimajeTextBoxWatermark
+                    x:Name="TxtEstimation"
+                    Height="30"
+                    Margin="0,0,0,5"
+                    Padding="7"
+                    Background="#B1FFD4B0"
+                    Foreground="#575757"
+                    IsReadOnly="True"
+                    Placeholder="Estimation"
+                    Text="Estimation"
+                    TextAlignment="Center" />
+
+                <!--<controls:SimajeTextBoxWatermark
+                    x:Name="TxtNumberSlide"
+                    Height="30"
+                    Margin="0,0,0,5"
+                    Padding="7"
+                    Foreground="#575757"
+                    IsOnlyNumeric="True"
+                    Placeholder="Number of slides"
+                    Text="1"
+                    TextAlignment="Center"
+                    TextChanged="TxtNumberSlide_TextChanged" />-->
+
+                <telerik:RadNumericUpDown
+                    x:Name="TxtNumberSlide"
+                    Height="30"
+                    Margin="0,0,0,5"
+                    Padding="7,7,-7,7"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    telerik:StyleManager.Theme="VisualStudio2019"
+                    Background="Transparent"
+                    BorderBrush="#BDBDBD"
+                    BorderThickness="1"
+                    Foreground="#575757"
+                    IsInteger="True"
+                    Maximum="1000"
+                    Minimum="1"
+                    NullValue="1"
+                    NumberDecimalDigits="0" />
+                <controls:SimajeCircleButton
+                    x:Name="BtnValidation"
+                    Width="32"
+                    Height="32"
+                    Margin="0,0,0,3"
+                    HorizontalAlignment="Right"
+                    Background="#FDFDFD"
+                    BorderBrush="#E4E4E4"
+                    BorderThickness="1"
+                    Click="BtnValidation_Click"
+                    Foreground="#FFF0862F"
+                    IconName="check"
+                    IconSize="16"
+                    ToolTipAnimation="Fade"
+                    ToolTipPlacementMode="Top"
+                    ToolTipText="Validate" />
+
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

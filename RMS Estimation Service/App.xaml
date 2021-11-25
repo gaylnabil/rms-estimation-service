@@ -1,0 +1,10 @@
+﻿<Application
+    x:Class="RMS_Estimation_Service.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:RMS_Estimation_Service"
+    StartupUri="StartUp/SplashScreen.xaml">
+    <!--  StartupUri="MainRmsEstimationService.xaml"  -->
+    <!--  StartupUri="StartUp/SplashScreen.xaml"  -->
+    <Application.Resources />
+</Application>

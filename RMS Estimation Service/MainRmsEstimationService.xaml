@@ -1,0 +1,520 @@
+﻿<Window
+    x:Class="RMS_Estimation_Service.MainRmsEstimationService"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ControlsObjects="clr-namespace:RMS_Estimation_Service.ControlsObjects"
+    xmlns:controls="clr-namespace:SimajeEmeakomLib.Controls;assembly=SimajeEmeakomLib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    x:Name="RmsEstimationService1"
+    Title="RMS Estimation Service"
+    Width="1230"
+    Height="720"
+    FontFamily="Trebuchet MS (Body)"
+    FontSize="12"
+    Loaded="RmsEstimationService1_Loaded"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d" Closed="RmsEstimationService1_Closed">
+    <Border BorderBrush="#7E7E7E" BorderThickness="2">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="290" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid
+                x:Name="GridTitleBar"
+                Grid.ColumnSpan="2"
+                Background="#BEBEBE"
+                MouseDown="GridTitleBar_MouseDown">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="290" />
+                </Grid.ColumnDefinitions>
+                <Grid Background="White" >
+                </Grid>
+                <controls:SimajeCircleButton
+                    x:Name="BtnClose"
+                    Grid.Column="1"
+                    Width="18"
+                    Height="18"
+                    Margin="0,0,10,0"
+                    HorizontalAlignment="Right"
+                    Background="#FDFDFD"
+                    BorderBrush="#E4E4E4"
+                    BorderThickness="1"
+                    Click="BtnClose_Click"
+                    Foreground="#FFF0862F"
+                    IconName="times"
+                    IconSize="12"
+                    OpacityShadow="0"
+                    ToolTipAnimation="Fade"
+                    ToolTipPlacementMode="Top"
+                    ToolTipText="Close" />
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="40,5,5,5"
+                        HorizontalAlignment="Left"
+                        Source="Images/rms_logo.png" />
+
+                    <controls:SimajeCircleButton
+                        x:Name="BtnSettings"
+                        Grid.Row="0"
+                        Width="32"
+                        Height="32"
+                        Margin="0,-20,10,0"
+                        HorizontalAlignment="Right"
+                        Background="#EE842F"
+                        BorderBrush="#E4E4E4"
+                        BorderThickness="1"
+                        Click="BtnSettings_Click"
+                        Foreground="White"
+                        IconName="cog"
+                        IconSize="16"
+                        OpacityShadow="0"
+                        ToolTipAnimation="Fade"
+                        ToolTipPlacementMode="Top"
+                        ToolTipText="Settings" />
+
+                    <Border
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Padding="10">
+                        <Border
+                            x:Name="BorderCategories"
+                            BorderBrush="#BEBEBE"
+                            BorderThickness="1,0,1,0">
+                            <controls:SimajeScrollBarViewer
+                                x:Name="ScrollViewerLog1"
+                                Margin="0,0,0,0"
+                                HorizontalScrollBarVisibility="Auto"
+                                VerticalScrollBarVisibility="Hidden">
+
+                                <StackPanel
+                                    x:Name="SpCategories"
+                                    Margin="16,16,8,16"
+                                    Orientation="Horizontal">
+                                    <controls:SimajeButtonFeature
+                                        Width="215"
+                                        Height="231"
+                                        Margin="8,0,8,0"
+                                        Description="From logos to campaigns and brochures, we create distinct visual identities and communications "
+                                        IconData="M296,310.26h0c3.3-4.63.84-6.28-3.82-6.36-6.67-.15-13.38-.23-20.05,0-4.94.16-6.95-1.73-6.71-6.54.33-5.59.08-11.21.08-17.49,3.5-.15,6.23-.38,9-.38,25.16,0,50.35.19,75.54-.23,4.14-.08,8.24-2.89,12.34-4.43v-139c-3.3-4.78-7.8-6.24-13.78-6.24-57.58.19-115.12.11-172.66.11-11.13,0-14.38,3-14.38,13.4q-.06,62.44,0,124.85c0,9.13,2.25,11.44,11.77,11.48,24.95.12,49.86,0,74.78,0h10.4c0,7.28.32,14.09-.24,20.83-.12,1.31-3.49,3.28-5.5,3.39-6.91.46-13.86.12-20.82.27-4.7.08-7.11,1.73-3.81,6.36Zm58.78-56.34h0c-2.93,0-5.46,0-7.95-.08-38,0-76-.16-114,.15-6.83.08-8.8-1.85-8.76-8.28q.42-50.6,0-101.16c0-6.4,1.93-8.48,8.76-8.44,38,.31,76,.23,114,.08,6,0,8.92,1.62,8.88,7.93-.2,34.47-.08,68.94-.12,103.4A56.41,56.41,0,0,1,354.8,253.92Zm-138.54-.35h0c-15.79,0-31.1,0-47.17,0-.24-2.93-.6-5.55-.6-8.17q-.06-49.78,0-99.62c0-9,.52-9.48,10.16-9.52,10.77,0,21.54,0,32.27,0,3.86,0,6.23.69,6.23,5.23Q217,196.1,217,250.72A13.53,13.53,0,0,1,216.26,253.57ZM262.15,261h0q42.74,0,85.5,0c3.74,0,8-.81,8.12,5.09.08,4.19-1,6.73-5.87,6.58-1.28,0-2.57,0-3.85,0-56,0-112,.08-167.92-.12-3.13,0-7.79-1-9.08-3-3-4.77.24-8.51,6.83-8.51C204.65,260.92,233.38,261,262.15,261Zm16.1-27.63c-2-.12-3.83-2.28-5.72-3.54,1.93-1.22,3.83-3.47,5.76-3.51,15.65-.27,31.29-.31,46.94,0,2,0,3.87,2.33,5.8,3.55-1.93,1.22-3.83,3.38-5.84,3.5-7.95.39-15.93.16-23.87.16h0C293.62,233.49,285.91,233.72,278.25,233.33Zm.78-69.65c-2.22-.11-4.32-2.18-6.5-3.36,2-1.15,3.91-3.22,5.89-3.26,15.51-.25,31-.29,46.48,0,2.05,0,4.07,2,6.13,3.11-2.1,1.22-4.16,3.36-6.34,3.47-7.71.45-15.46.19-23.21.19h0C294,163.83,286.5,164.09,279,163.68Zm47.14,28.22c1.69.08,3.26,2.3,4.86,3.51-1.48,1.08-3,3.1-4.5,3.14q-24.57.36-49.12,0c-1.49,0-2.93-2.06-4.42-3.14,1.61-1.21,3.17-3.43,4.86-3.51,8.07-.37,16.31-.16,24.5-.16h0C310.31,191.74,318.22,191.53,326.17,191.9Zm-79.33-31.46c-.83-5,3.25-8.82,8.24-7.83,3.21.64,7.65,4.84,7.77,7.64.16,3-4,6.25-6.38,9.39l-3.57-.11h0C250.8,166.5,247.39,163.7,246.84,160.44Zm16,69.91c-.31,2.75-5.06,6.63-8.26,7.09a6.63,6.63,0,0,1-7.63-8.34c.79-3.24,4.39-5.87,6.76-8.77,1.19,0,2.37.08,3.52.12h0C259.27,223.76,263.19,227.27,262.83,230.35Zm-8.67-42.87c5.41-1.14,8.94,2.49,9.15,7.45s-3.38,8.79-8.62,8.14c-3.46-.42-6.47-3.86-9.68-6,0-1.07-.08-2.18-.12-3.29h0C247.94,191.61,250.7,188.21,254.16,187.48Z"
+                                        IsToggleButton="True"
+                                        TitleHeader="Design Graphics" />
+
+                                </StackPanel>
+
+                            </controls:SimajeScrollBarViewer>
+                        </Border>
+                    </Border>
+
+                </Grid>
+
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Padding="10,0,0,0"
+                    Background="#EEEEEE">
+                    <controls:SimajeScrollBarViewer Margin="0,0,10,0">
+                        <!--
+                            HoverBrush="#5454E0"
+                            PressedBrush="Blue"
+                            StandardBrush="#2D2DE5"
+                        -->
+                        <WrapPanel
+                            x:Name="ContainerBottom"
+                            Margin="16,16,0,0"
+                            Orientation="Horizontal">
+                            <StackPanel Width="215" Height="260">
+                                <Border
+                                    Margin="10,5,10,0"
+                                    BorderBrush="#D9D9D9"
+                                    BorderThickness="1">
+                                    <StackPanel Height="140" Background="White">
+                                        <TextBlock
+                                            Padding="0,18"
+                                            FontSize="16"
+                                            FontWeight="Bold"
+                                            Foreground="#575757"
+                                            Text="Presentation Design"
+                                            TextAlignment="Center" />
+                                        <TextBlock
+                                            Padding="5,2"
+                                            FontSize="12"
+                                            Foreground="#7E7E7E"
+                                            Text="PPT/GRID: Key slides, creative designs, slide edits/formatting and animation"
+                                            TextAlignment="Center"
+                                            TextWrapping="WrapWithOverflow" />
+                                    </StackPanel>
+                                </Border>
+                                <StackPanel Margin="10,5,10,0">
+                                    <controls:SimajeTextBoxWatermark
+                                        Height="30"
+                                        Margin="0,0,0,5"
+                                        Padding="7"
+                                        Foreground="#575757"
+                                        Placeholder="Estimation"
+                                        Text="Estimation"
+                                        TextAlignment="Center" />
+
+                                    <telerik:RadNumericUpDown
+                                        Height="30"
+                                        Margin="0,0,0,5"
+                                        Padding="7"
+                                        telerik:StyleManager.Theme="VisualStudio2019"
+                                        Background="Transparent"
+                                        BorderBrush="#BDBDBD"
+                                        BorderThickness="1"
+                                        Foreground="#575757"
+                                        Maximum="1000"
+                                        Minimum="1" />
+                                    <controls:SimajeCircleButton
+                                        x:Name="BtnValidation"
+                                        Width="32"
+                                        Height="32"
+                                        Margin="0,0,0,3"
+                                        HorizontalAlignment="Right"
+                                        Background="#FDFDFD"
+                                        BorderBrush="#E4E4E4"
+                                        BorderThickness="1"
+                                        Foreground="#FFF0862F"
+                                        IconName="check"
+                                        IconSize="16"
+                                        ToolTipAnimation="Fade"
+                                        ToolTipPlacementMode="Top"
+                                        ToolTipText="Valider" />
+
+                                </StackPanel>
+                            </StackPanel>
+                        </WrapPanel>
+                    </controls:SimajeScrollBarViewer>
+                </Border>
+
+                <Canvas
+                    x:Name="CanvasQuoteContainer"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Background="#F4F4F4">
+                    <TextBlock
+                        x:Name="TxtBlockQuotes"
+                        Padding="3"
+                        Background="Transparent"
+                        FontSize="11"
+                        Foreground="#575757"
+                        Text="There is always a reason to 'SMILE'" />
+                </Canvas>
+            </Grid>
+
+            <!--  #FFF0862F"  -->
+            <Grid
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="0"
+                Background="#BEBEBE">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+                <controls:SimajeCircleButton
+                    x:Name="BtnClearAll"
+                    Grid.Row="0"
+                    Width="32"
+                    Height="32"
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Left"
+                    Background="#FDFDFD"
+                    BorderBrush="#E4E4E4"
+                    BorderThickness="1"
+                    Click="BtnClearAll_Click"
+                    Foreground="#FFF0862F"
+                    IconName="trash"
+                    IconSize="14"
+                    OpacityShadow="0"
+                    ToolTipAnimation="Fade"
+                    ToolTipPlacementMode="Top"
+                    ToolTipText="Clear all" />
+                <Border
+                    x:Name="BorderContainerDataLog"
+                    Grid.Row="1"
+                    Margin="0,0,0,0"
+                    Padding="0,10,0,5"
+                    BorderThickness="0">
+                    <!--  FFF0862F  -->
+                    <controls:SimajeScrollBarViewer
+                        x:Name="ScrollViewerLog"
+                        Margin="0,0,5,0"
+                        HoverBrush="Azure"
+                        PressedBrush="White"
+                        StandardBrush="AliceBlue"
+                        VerticalScrollBarVisibility="Auto">
+                        <StackPanel x:Name="StackPanelContentLogs" Margin="0,0,-10,0">
+                            <!--  ="StackPanelContentLogs_LayoutUpdated"  -->
+                            <Border
+                                x:Name="BorderDataLog"
+                                Margin="0,0,0,0"
+                                Padding="0,0,0,5"
+                                BorderBrush="White"
+                                BorderThickness="0,0,0,1">
+                                <Grid x:Name="GridDataLog">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="260" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0">
+                                        <Border
+                                            Margin="10,4,10,4"
+                                            Padding="4"
+                                            Background="#F1F1F1"
+                                            BorderBrush="#F1F1F1"
+                                            BorderThickness="1">
+                                            <TextBox
+                                                x:Name="TxtBlockCategoryService"
+                                                Background="Transparent"
+                                                BorderThickness="0"
+                                                Foreground="#575757"
+                                                IsReadOnly="True"
+                                                Text="Service Category" />
+                                        </Border>
+                                        <Border
+                                            Margin="10,4,10,4"
+                                            Padding="4"
+                                            Background="#F1F1F1"
+                                            BorderBrush="#F1F1F1"
+                                            BorderThickness="1">
+                                            <TextBox
+                                                x:Name="TxtBlockTypeService"
+                                                Background="Transparent"
+                                                BorderThickness="0"
+                                                Foreground="#575757"
+                                                IsReadOnly="True"
+                                                Text="Service Type" />
+                                        </Border>
+
+                                        <Grid Margin="10,4,10,4">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="130" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border
+                                                Margin="0,0,8,0"
+                                                Padding="4"
+                                                Background="#F1F1F1"
+                                                BorderBrush="#F1F1F1"
+                                                BorderThickness="1">
+                                                <TextBox
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
+                                                    Foreground="#575757"
+                                                    IsReadOnly="True"
+                                                    Text="Estimation" />
+                                            </Border>
+                                            <Border
+                                                Grid.Column="1"
+                                                Padding="4"
+                                                HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Stretch"
+                                                Background="#F1F1F1"
+                                                BorderBrush="#F1F1F1"
+                                                BorderThickness="1">
+                                                <TextBox
+                                                    x:Name="TxtEstimation"
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
+                                                    Foreground="#575757"
+                                                    IsReadOnly="True"
+                                                    Text="01:00"
+                                                    TextAlignment="Right" />
+                                            </Border>
+                                        </Grid>
+
+                                        <Grid Margin="10,4,10,4">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="130" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border
+                                                Margin="0,0,8,0"
+                                                Padding="4"
+                                                Background="#F1F1F1"
+                                                BorderBrush="#F1F1F1"
+                                                BorderThickness="1">
+                                                <TextBox
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
+                                                    Foreground="#575757"
+                                                    IsReadOnly="True"
+                                                    Text="Number of slides" />
+                                            </Border>
+                                            <Border
+                                                Grid.Column="1"
+                                                Padding="4"
+                                                HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Stretch"
+                                                Background="#F1F1F1"
+                                                BorderBrush="#F1F1F1"
+                                                BorderThickness="1">
+                                                <TextBox
+                                                    x:Name="TxtNbrSlide"
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
+                                                    Foreground="#575757"
+                                                    IsReadOnly="True"
+                                                    Text="3"
+                                                    TextAlignment="Right" />
+                                            </Border>
+                                        </Grid>
+
+                                        <Grid Margin="10,4,10,4">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="130" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border
+                                                Margin="0,0,8,0"
+                                                Padding="4"
+                                                Background="#F1F1F1"
+                                                BorderBrush="#F1F1F1"
+                                                BorderThickness="1">
+                                                <TextBox
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
+                                                    Foreground="#575757"
+                                                    IsReadOnly="True"
+                                                    Text="Result" />
+                                            </Border>
+                                            <Border
+                                                Grid.Column="1"
+                                                Padding="4"
+                                                HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Stretch"
+                                                Background="#F1F1F1"
+                                                BorderBrush="#F1F1F1"
+                                                BorderThickness="1">
+                                                <TextBox
+                                                    x:Name="TxtResult"
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
+                                                    Foreground="#575757"
+                                                    IsReadOnly="True"
+                                                    Text="03:00"
+                                                    TextAlignment="Right" />
+                                            </Border>
+                                        </Grid>
+                                    </StackPanel>
+                                    <controls:SimajeCircleButton
+                                        x:Name="BtnCloseLog"
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Width="20"
+                                        Height="20"
+                                        Margin="0,5,30,0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Top"
+                                        Background="Transparent"
+                                        BorderBrush="#E4E4E4"
+                                        BorderThickness="1"
+                                        Foreground="#E4E4E4"
+                                        IconName="times"
+                                        IconSize="14"
+                                        OpacityShadow="0"
+                                        ToolTipAnimation="Fade"
+                                        ToolTipPlacementMode="Top"
+                                        ToolTipText="CLear" />
+                                </Grid>
+                            </Border>
+
+                        </StackPanel>
+                    </controls:SimajeScrollBarViewer>
+                </Border>
+
+                <Border
+                    x:Name="BorderContentBottomTotal"
+                    Grid.Row="2"
+                    Background="#7E7E7E"
+                    BorderBrush="#7E7E7E"
+                    BorderThickness="0,1,0,0">
+                    <Grid Height="24" Margin="10,4,10,4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90" />
+                            <ColumnDefinition Width="90" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Border
+                            Margin="0,0,8,0"
+                            Padding="4"
+                            Background="#F1F1F1"
+                            BorderBrush="#F1F1F1"
+                            BorderThickness="1">
+                            <TextBox
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Foreground="#575757"
+                                IsReadOnly="True"
+                                Text="Total" />
+                        </Border>
+                        <Border
+                            Grid.Column="1"
+                            Margin="0,0,8,0"
+                            Padding="4"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Background="#F1F1F1"
+                            BorderBrush="#F1F1F1"
+                            BorderThickness="1">
+                            <TextBox
+                                x:Name="TxtTotalEstimation"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Foreground="#575757"
+                                IsReadOnly="True"
+                                Text="0"
+                                TextAlignment="Right" />
+                        </Border>
+                        <Border
+                            Grid.Column="2"
+                            Padding="4"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Background="#F1F1F1"
+                            BorderBrush="#F1F1F1"
+                            BorderThickness="1">
+                            <TextBox
+                                x:Name="TxtDuration"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Foreground="#575757"
+                                IsReadOnly="True"
+                                Text="00:00"
+                                TextAlignment="Right" />
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+
+</Window>

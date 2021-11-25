@@ -1,0 +1,16 @@
+﻿<root>
+  <servername>10.160.102.31</servername>
+  <port>1433</port>
+  <database>RmsServices</database>
+  <username>sa</username>
+  <password>PkfbJya1u2Y43OZp6QUR</password>
+</root>
+
+<!-- you don't need the xml below it's just a comment-->
+<!--<root>
+  <servername>10.160.101.21</servername>
+  <port>2236</port>
+  <database>RmsServices</database>
+  <username>sa</username>
+  <password>Nabilgayl@1985</password>
+</root>-->
