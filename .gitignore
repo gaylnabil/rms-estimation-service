@@ -316,9 +316,9 @@ ServiceFabricBackup/
 *.rptproj.bak
 
 # SQL Server files
-*.mdf
-*.ldf
-*.ndf
+# *.mdf
+# *.ldf
+# *.ndf
 
 # Business Intelligence projects
 *.rdl.data
@@ -434,6 +434,9 @@ versions/
 *.sql
 **/Ai Files/
 **/Data/
+**/logo_simaje.ico
+**/Emeakom_logo.ico
+**/db_original/
 
 
 
